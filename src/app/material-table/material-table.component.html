@@ -1,0 +1,39 @@
+<div class="mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+
+    <!-- Id Column -->
+    <ng-container matColumnDef="label">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Coverage Label</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row['coverage:label']}}</mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="identifier">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Coverage Identifier</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row['coverage:identifier']}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Coverage Start Date</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row['coverage:start_date']}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Coverage Amount</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row['coverage:amount']}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="commRate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Comm. Rate</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row['coverage:ext_comission_rate_label']}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator
+    [pageSize]="5"
+    [pageSizeOptions]="[3, 5]">
+  </mat-paginator>
+</div>
